@@ -46,7 +46,7 @@ class Review(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='reviews')
     username = models.CharField(max_length=255, blank=False)
     rating = models.PositiveIntegerField(blank=False, validators=[MaxValueValidator(5)])  # Assuming rating is from 1-5
-    comment = models.TextField()
+    comment = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
